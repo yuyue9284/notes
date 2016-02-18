@@ -1,0 +1,52 @@
+\documentclass{article} 	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage[UTF8, heading = false, scheme = plain]{ctex}
+
+\title{2016 Spring Notes}
+\author{Yue Yu}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+\section{Information Theory}
+
+\subsection{Differential Entropy}
+
+
+\subsubsection{常见 Differential Entropy}
+\emph{Uniform distribution(from 0 to a)}
+\[
+\log(a)
+\]
+\emph{Normal Distribution}
+\[
+ X\sim N(0,\sigma^2)
+ \]
+ \[
+ h(X) = \frac{1}{2} \log2\pi e \sigma^2 
+\]
+\emph{Multivariate Normal Distribution}
+$$N_n\sim(\mu, K)$$
+\qquad $\mu$ is mean and $K$ is covariance matrix
+\[
+h(X_1,\ldots,X_n) = \frac{1}{2}\log(2\pi e )^n |K|
+\]
+
+\subsubsection{Properties}
+$h(X+c) = h(X)$\\
+$h(aX) = h(X) + \log|a|$\\
+$h(AX) = h(X) + \log\big|\mathrm{det}(A)\big|$
+
+
+
+
+\end{document}  
