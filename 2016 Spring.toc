@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}各种相关背景知识}{2}
+\contentsline {subsection}{\numberline {1.1}概率论}{2}
+\contentsline {subsubsection}{\numberline {1.1.1}协方差矩阵}{2}
+\contentsline {subsubsection}{\numberline {1.1.2}Multivariate normal distribution}{2}
+\contentsline {section}{\numberline {2}Information Theory}{3}
+\contentsline {subsection}{\numberline {2.1}Differential Entropy}{3}
+\contentsline {subsubsection}{\numberline {2.1.1}常见 Differential Entropy}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}Properties}{3}

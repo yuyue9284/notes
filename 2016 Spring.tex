@@ -6,8 +6,8 @@
 \usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
-
 \usepackage[UTF8, heading = false, scheme = plain]{ctex}
+
 
 \title{2016 Spring Notes}
 \author{Yue Yu}
@@ -16,37 +16,63 @@
 \tableofcontents
 \newpage
 
+\section{各种相关背景知识}
+	\subsection{概率论}
+		\subsubsection{协方差矩阵}
+                        \begin{eqnarray}
+                                \Sigma &=& \mathrm{E}\Big[(\mathrm{X}-\mathrm{E}(\mathrm{X}))(\mathrm{X}-\mathrm{E}(\mathrm{X}))^T\Big]\\
+                                \Sigma_{i,j} &=& Cov(X_i, X_j)\\
+                                &=& \mathrm{E}\Big[(X_i - \mu_i)(X_j - \mu_j)\Big]
+                        \end{eqnarray}
+
+                \subsubsection{Multivariate normal distribution}
+                        \begin{itemize}
+                                \item
+                                $$f_X(x_1,\ldots,x_n) = \frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\mathrm{exp}(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
+                                
+                                \item
+                                当为二维高斯分布时，条件概率服从（$\rho$为相关系数）:
+                                $$X_1\Big|X_2 =x_2\sim N(\mu_1 +\frac{\sigma_1}{\sigma_2}\rho(x_2-\mu_2),(1-\rho^2)\sigma_1^2)$$
+                        \end{itemize}
+\newpage
+
+
+
 
 \section{Information Theory}
-
-\subsection{Differential Entropy}
-
-
-\subsubsection{常见 Differential Entropy}
-\emph{Uniform distribution(from 0 to a)}
-\[
-\log(a)
-\]
-\emph{Normal Distribution}
-\[
- X\sim N(0,\sigma^2)
- \]
- \[
- h(X) = \frac{1}{2} \log2\pi e \sigma^2 
-\]
-\emph{Multivariate Normal Distribution}
-$$N_n\sim(\mu, K)$$
-\qquad $\mu$ is mean and $K$ is covariance matrix
-\[
-h(X_1,\ldots,X_n) = \frac{1}{2}\log(2\pi e )^n |K|
-\]
-
-\subsubsection{Properties}
-$h(X+c) = h(X)$\\
-$h(aX) = h(X) + \log|a|$\\
-$h(AX) = h(X) + \log\big|\mathrm{det}(A)\big|$
-
-
+	\subsection{Differential Entropy}
+		\subsubsection{常见 Differential Entropy}
+			\begin{itemize}
+			       \item
+            		       \emph{Uniform distribution(from 0 to a)}
+                                \[
+                                \log(a)
+                                \]
+                                
+                                \item
+                                \emph{Normal Distribution}
+                                \[
+                                 X\sim N(0,\sigma^2)
+                                 \]
+                                 \[
+                                 h(X) = \frac{1}{2} \log2\pi e \sigma^2 
+                                \]
+                                
+                                \item
+                                \emph{Multivariate Normal Distribution}
+                                $$N_n\sim(\mu, K)$$
+                                $\mu$ is mean and $K$ is covariance matrix
+                                \[
+                                h(X_1,\ldots,X_n) = \frac{1}{2}\log(2\pi e )^n |K|
+                                \]
+			\end{itemize}
+			
+		\subsubsection{Properties}
+                        \begin{itemize}
+                                \item $h(X+c) = h(X)$\\
+                                \item$h(aX) = h(X) + \log|a|$\\
+                                \item$h(AX) = h(X) + \log\big|\mathrm{det}(A)\big|$
+                        \end{itemize}
 
 
 \end{document}  
