@@ -7,6 +7,7 @@
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 \usepackage[UTF8, heading = false, scheme = plain]{ctex}
+\usepackage[colorlinks = false]{hyperref}
 
 
 \title{2016 Spring Notes}
@@ -18,8 +19,19 @@
 
 \section{各种相关背景知识}
 	\subsection{概率论}
+		\subsubsection{条件概率期望:}
+			\begin{eqnarray}
+			E(X) = E(E(X|Y))
+			\end{eqnarray}
+		\subsubsection{Correlation coefficient(相关系数)}
+			\begin{eqnarray}
+				\rho_{\scriptscriptstyle X,\scriptscriptstyle Y} &=& \frac{Cov(X,Y)}{\sigma_{\scriptscriptstyle X}\sigma_{\scriptscriptstyle Y}}\\
+				&=& \frac{E(X-E(X))(Y-E(Y))}{\sigma_{\scriptscriptstyle X}\sigma_{\scriptscriptstyle Y}}\\
+				&=& \frac{E(XY)-E(X)E(Y)}{\sigma_{\scriptscriptstyle X}\sigma_{\scriptscriptstyle Y}}
+			\end{eqnarray}
 		\subsubsection{协方差矩阵}
                         \begin{eqnarray}
+                        	       \mathrm{X} &=& [X_1,\ldots,X_n]^T\\
                                 \Sigma &=& \mathrm{E}\Big[(\mathrm{X}-\mathrm{E}(\mathrm{X}))(\mathrm{X}-\mathrm{E}(\mathrm{X}))^T\Big]\\
                                 \Sigma_{i,j} &=& Cov(X_i, X_j)\\
                                 &=& \mathrm{E}\Big[(X_i - \mu_i)(X_j - \mu_j)\Big]
@@ -28,12 +40,45 @@
                 \subsubsection{Multivariate normal distribution}
                         \begin{itemize}
                                 \item
+                                多维高斯联合分布:
                                 $$f_X(x_1,\ldots,x_n) = \frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\mathrm{exp}(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
                                 
                                 \item
-                                当为二维高斯分布时，条件概率服从（$\rho$为相关系数）:
-                                $$X_1\Big|X_2 =x_2\sim N(\mu_1 +\frac{\sigma_1}{\sigma_2}\rho(x_2-\mu_2),(1-\rho^2)\sigma_1^2)$$
+                                当为二维高斯分布时（$\rho$为相关系数）:\\
+                                $$f(x,y) = \frac{1}{2\pi\sigma_x\sigma_y\sqrt{1-\rho^2}}\mathrm{exp}\Big( -\frac{1}{2(1-\rho)^2} 
+                                \Big[\frac{(x-\mu_x)}{\sigma_x^2}+\frac{(y-\mu_y)}{\sigma_y^2} - \frac{2\rho(x-\mu_x)(y-\mu_y)}{\sigma_x\sigma_y}\Big]\Big)$$
+                                
+                                条件概率服从:
+                                $$P(X_1\big|X_2 =x_2)\sim N(\mu_1 +\frac{\sigma_1}{\sigma_2}\rho(x_2-\mu_2),(1-\rho^2)\sigma_1^2)$$
                         \end{itemize}
+	        
+	        \subsubsection{Laplace Distribution:}
+	        		\begin{itemize}
+			\item
+			概率密度函数\\
+			$$f(x|\mu,b)= \displaystyle\frac{1}{2b} \mathrm{exp}\big(-\frac{|x-\mu|}{b}\big)$$
+			\item
+			期望\\
+			$$\mu$$
+			\item
+			方差\\
+			$$2b^2$$
+			\end{itemize}
+	
+	\subsection{矩阵求导法则：}
+		\begin{eqnarray}
+		\mathbf{\frac{\partial u^TAv}{\partial x}} &=& \mathbf{\frac{\partial u}{\partial x}Av + \frac{\partial v}{\partial x}A^Tu}\\
+		\mathbf{\frac{\partial(u(x)+v(x))}{\partial x}} &=& \mathbf{\frac{\partial u(x)}{\partial x}+ \frac{\partial v(x)}{\partial x} }\\
+		\mathbf{\frac{\partial Ax}{\partial x}} &=& \mathbf{A^T}\\
+		\mathbf{\frac{\partial a}{\partial x}} &=& \mathbf{0} \\
+		\mathbf{\frac{\partial x^T Ab}{\partial x}} &=& \mathbf{Ab}\\
+		\mathbf{\frac{\partial x^TAx}{\partial x}} &=& \mathbf{(A+A^T)x}\\
+		&=& \mathbf{2Ax} \textrm{\qquad 如果A为对称阵}\\
+		\mathbf{\frac{\partial |X|}{\partial X}} &=& \mathbf{|X|(X^{-1})^T} \\
+		\mathbf{\frac{\partial \ln |X|}{\partial X}} &=& \mathbf{(X^{-1})^T}
+		%\mathbf{\frac{\partial}{\partial x}} &=& \mathbf{\frac{\partial}{\partial x}} 
+		\end{eqnarray}
+	
 \newpage
 
 
@@ -46,7 +91,7 @@
 			       \item
             		       \emph{Uniform distribution(from 0 to a)}
                                 \[
-                                \log(a)
+                                h(X) = \log(a)
                                 \]
                                 
                                 \item
