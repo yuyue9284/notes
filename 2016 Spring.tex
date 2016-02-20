@@ -8,7 +8,9 @@
 \usepackage{amssymb}
 \usepackage[UTF8, heading = false, scheme = plain]{ctex}
 \usepackage[colorlinks = false]{hyperref}
-
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 \title{2016 Spring Notes}
 \author{Yue Yu}
@@ -157,6 +159,17 @@
 			$$y_{\scriptscriptstyle\mathrm{new}} = x_{\scriptscriptstyle\mathrm{new}}^Tw_{\scriptscriptstyle \mathrm{ML}} $$
 			
 	\subsection{Classification}
+		\subsubsection{Bayes Classifier}
+			The Bayes classifier has the smallest prediction error of all classifiers.\\
+			假设$(X,Y)$独立同分布，那么optimal classifier is:
+			\begin{eqnarray}
+			f(x) = \argmax_{y\in \mathcal{Y}} P(Y=y|X=x)
+			\end{eqnarray} 			Using Bayes rule and ignoring $P(X = x)$ we equivalently have: 
+			\begin{eqnarray}
+			f(x) = \argmax_{y\in \mathcal{Y}} P(Y=y)\times P(X=x|Y=y)
+			\end{eqnarray}
+			其中$P(Y=y)$叫做 class prior，$P(X=x|Y=y)$叫做 data likelihood given class.
+		
 	
 	
 			
