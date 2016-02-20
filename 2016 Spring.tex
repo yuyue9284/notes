@@ -119,5 +119,49 @@
                                 \item$h(AX) = h(X) + \log\big|\mathrm{det}(A)\big|$
                         \end{itemize}
 
+\newpage
+\section{Machine Learning}
+	\subsection{MAXIMUM LIKELIHOOD ESTIMATION (MLE)}
+		\subsubsection{GAUSSIAN MLE}
+			$$\hat{\mu}_{\scriptscriptstyle ML} = \frac{1}{n}\sum_{i=1}^nx_i$$
+			$$\hat{\Sigma}_{\scriptscriptstyle ML} = \frac{1}{n}\sum_{i=1}^n(x_i - \hat{\mu}_{\scriptscriptstyle ML})(x_i - \hat{\mu}_{\scriptscriptstyle ML})^T$$
+	
+	\subsection{Linear Regression}
+		\subsubsection{Least Squares}
+			Usually, for linear regression (and classification) we include an intercept term $w_0$ that doesn’t interact with any element in the vector $x$. It will be 
+			convenient to attach a 1 to the first dimension of each vector $x_i$.
+			\[
+			x_i = \left [
+				\begin{array}{c}
+				1\\
+				x_{i1}\\
+				\vdots\\
+				x_{id}\\
+				\end{array}
+				\right ]
+			, \qquad
+			\mathbf{X} = \left [
+					    \begin{array}{cccc}
+					    1 &x_{11}& \ldots & x_{1d}\\
+					    1 &x_{21}& \ldots & x_{2d}\\
+					    \vdots &\vdots&  & \vdots\\
+					    1 &x_{n1}& \ldots & x_{nd}\\
+					    \end{array}
+					    \right]
+			\]
+			这种情况下，得到的解为:
+			\[
+			w_{\scriptscriptstyle \mathrm{ML}} = (X^TX)^{-1}X^Ty
+			\]
+			预测新的点为:
+			$$y_{\scriptscriptstyle\mathrm{new}} = x_{\scriptscriptstyle\mathrm{new}}^Tw_{\scriptscriptstyle \mathrm{ML}} $$
+			
+	\subsection{Classification}
+	
+	
+			
+		
+	
+
 
 \end{document}  

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.1)  20 FEB 2016 11:49
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.1)  20 FEB 2016 16:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1456,20 +1456,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
 [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
  (./2016 Spring.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 123.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 123.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 167.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 167.
  ) 
 Here is how much of TeX's memory you used:
- 25852 strings out of 493706
- 506355 string characters out of 6145770
- 533877 words of memory out of 5000000
- 28978 multiletter control sequences out of 15000+600000
+ 25873 strings out of 493706
+ 507502 string characters out of 6145770
+ 534885 words of memory out of 5000000
+ 28999 multiletter control sequences out of 15000+600000
  10634 words of font info for 65 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,11n,74p,10460b,399s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 2016 Spring.pdf (4 pages).
+Output written on 2016 Spring.pdf (5 pages).
