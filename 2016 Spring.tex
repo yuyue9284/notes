@@ -9,6 +9,8 @@
 \usepackage[UTF8, heading = false, scheme = plain]{ctex}
 \usepackage[colorlinks = false]{hyperref}
 \usepackage{amsmath}
+\usepackage{bbm}
+
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 
@@ -164,12 +166,47 @@
 			假设$(X,Y)$独立同分布，那么optimal classifier is:
 			\begin{eqnarray}
 			f(x) = \argmax_{y\in \mathcal{Y}} P(Y=y|X=x)
-			\end{eqnarray} 			Using Bayes rule and ignoring $P(X = x)$ we equivalently have: 
+			\end{eqnarray}
+ 			Using Bayes rule and ignoring $P(X = x)$ we equivalently have: 
 			\begin{eqnarray}
 			f(x) = \argmax_{y\in \mathcal{Y}} P(Y=y)\times P(X=x|Y=y)
 			\end{eqnarray}
 			其中$P(Y=y)$叫做 class prior，$P(X=x|Y=y)$叫做 data likelihood given class.
-		
+		\subsubsection{THE PERCEPTRON ALGORITHM}
+			\begin{itemize}
+			\item
+			Suppose there is a linear classifier with zero training error:
+			$$y_i = \mathrm{sign}(x_i^Tw)$$
+			Then the data is linearly ‘separable’\\
+			\item
+			By using the linear classifier $y = \mathrm{sign}(x^Tw)$ the Perceptron seeks to minimize
+			$$\mathcal{L} = -\sum_{i=1}^n(y_{i}\cdot x_i^Tw)\mathbbm{1} \{y_i\not = \mathrm{sign}(x_i^Tw)\}$$
+			Because $y\in \{-1,+1\}$,
+			\[
+			y_i\cdot x_i^Tw \quad \mathrm{is}\quad
+			\left \{ 
+			\begin{array}{c}
+			> 0\quad y_i = x_i^Tw\\
+			< 0\quad y_i \not= x_i^Tw\\
+			\end{array}
+			\right .
+			\]
+			By minimizing $\mathcal{L}$ we’re trying to always predict the correct label.
+			\item
+			$\nabla_w\mathcal{L} = 0 $ 没有办法直接解出来，所以使用 gradient descent 的方法迭代求解
+			($\mathcal{M}_t$ 表示在第$t$步被分错类的数据下标的集合)：
+			\begin{eqnarray}
+			\nabla_w\mathcal{L} = \sum_{i \in \mathcal{M}_t} -y_ix_i\\
+			w'\gets w -\eta \nabla_w\mathcal{L} \\
+			\mathcal{L}(w')<\mathcal{L}(w)
+			\end{eqnarray}
+			\item
+			Perceptron 算法的一些问题：\\
+			When the data is separable, there are an infinite number of hyperplanes.\\
+			This algorithm. doesn’t take “quality” into consideration. It converges to the first one it finds.\\
+			When the data isn’t separable, the algorithm doesn’t converge. The hyperplane of $w$ is always moving around.\\
+			\end{itemize}
+			
 	
 	
 			
