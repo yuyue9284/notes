@@ -291,6 +291,65 @@
 			\item
 			Laplace approximation for logistic regression 参见lecture\_9第24页\\
 			\end{itemize}
+	\subsection{Kernels}
+		\subsubsection{Defination}
+			A kernel $K(\cdot,\cdot):\mathbb{R}^d\times \mathbb{R}^d \to \mathbb{R}$\ is a symmetric function defined as follows:\\
+			For any set of data $x_1,\ldots, x_n \in \mathbb{R}^d$, the $n \times n$ matrix $K$ with $K_{i,j} = K(x_i,x_j)$ and there is a mapping 
+			$\phi:\mathbb{R}^d \to \mathbb{R}^D$ such that $K(x_i,x_j) = \phi(x_i)^T\phi(x_j)$
+		\subsubsection{Gaussian Kernel}
+			Also called \emph{radial basis function} (RBF),
+			$$K(x,x') = a\,\mathrm{exp}(-\frac{1}{b}||x-x'||^2)$$
+		\subsubsection{产生新Kernel}
+			假设$K_1,K_2$为两个kernel，可以利用现有的kernel组成新的kernel $K$：
+			\begin{eqnarray}
+			K(x,x') &=& K_1(x,x') + K_2(x,x')\\
+			K(x,x') &=& K_1(x,x')K_2(x,x')\\
+			K(x,x') &=& \mathrm{exp}{K_1(x,x')} 
+			\end{eqnarray}
+		\subsubsection{Kernelized Perceptron}
+			\begin{itemize}
+			\item
+			For Perceptron classfier,
+			$$w = \sum_{i \in \mathcal{M}}y_ix_i$$
+			where $\mathcal{M}$ is \emph{sequentially constructed} set of misclassified examples.
+			$$y_0 =\mathrm{sign}(x_0^Tw) = \mathrm{sign}(\sum_{i \in \mathcal{M}}y_ix_0^T x_i)$$
+			\item
+			Using feature expansions, we can rewrite the function into the form below:
+			$$y_0 =\mathrm{sign}(\phi(x_0)^Tw) = \mathrm{sign}\big (\sum_{i \in \mathcal{M}}y_i\phi(x_0)^T \phi(x_i)\big)$$
+			\item
+			Use the kernel replace the $\phi(x_0)^T \phi(x_i)$
+			$$y_0 = \mathrm{sign}\big (\sum_{i \in \mathcal{M}}y_i K(x_0,x_i)\big)$$
+			\item
+			Learning the kernelized Perceptron\\
+			和普通的Perceptron基本一样，只不过每次更新$\mathcal{M}$是用kernelized的公式错判的点，具体可以看lecture 10第15页
+			\end{itemize}
+		\subsubsection{Kernel k-NN}
+			lecture 10第16页
+			$$ y_0 = \frac{1}{Z}\mathrm{sign}\big(\sum^n_{i=1}y_ie^{-\frac{1}{b}||x_0-x_i||^2}\big)$$
+			其中$Z = \sum_{i=1}^n e^{-\frac{1}{b}||x_0 - x_i||^2}$
+		\subsubsection{Gaussian Processes}
+			具体参考 lecture 10 第19页以后
+			\begin{itemize}
+			\item
+			Defination\\
+			$f(x)$ is a Gaussian process and $y(x)$ is  the noise-added process
+			where $y = (y_1,\ldots,y_n)^T$ and $K$ is $n\times n$ matrix with $K_{ij} = K(x_i,x_j)$:
+			$$y|f \sim N(f,\sigma^2I),\ f\sim N(0,K) \Leftrightarrow y\sim N(0,\sigma^2I+K)$$
+			\textbf{可以这样理解：    }\emph{$f (x)$ is the GP and $y(x)$ equals $f (x)$ plus i.i.d. noise}
+			\item
+			Predictions with Gaussian Processes\\
+			Given measured data $\mathcal{D}_n = \{(x_1,y_1),\ldots,(x_n,y_n)\}$, the distribution of $y(x)$ 
+			can be calculated at any \emph{new x} to make predictions.\\
+			$K(x,\mathcal{D}_n) = [K(x,x_1),\ldots,K(x,x_n)]$ and $K_n$ is the $n\times n$ kernel matrix 
+			restricted points in $\mathcal{D}_n$
+				\begin{eqnarray}
+				y(x)|\mathcal{D}_n  &\sim& N(\mu(x),\Sigma(x))\\
+				\mu(x) &=& K(x,\mathcal{D}_n)K_n^{-1}y\\
+				\Sigma(x) &=& \sigma^2 + K(x,x) - K(x,\mathcal{D}_n) K_n^{-1} K(x,\mathcal{D}_n)^T
+				\end{eqnarray}
+			For the posterior of $f(x)$ instead of $y(x)$, just remove $\sigma^2$
+			\end{itemize}
+	
 			
 	
 	

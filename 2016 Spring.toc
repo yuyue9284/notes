@@ -20,3 +20,10 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Bayes Classifier}{6}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}THE PERCEPTRON ALGORITHM}{7}{subsubsection.3.3.2}
 \contentsline {subsubsection}{\numberline {3.3.3}LOGISTIC REGRESSION}{7}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}Kernels}{8}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Defination}{8}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Gaussian Kernel}{9}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}产生新Kernel}{9}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Kernelized Perceptron}{9}{subsubsection.3.4.4}
+\contentsline {subsubsection}{\numberline {3.4.5}Kernel k-NN}{9}{subsubsection.3.4.5}
+\contentsline {subsubsection}{\numberline {3.4.6}Gaussian Processes}{10}{subsubsection.3.4.6}
