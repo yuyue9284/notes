@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.1)  20 FEB 2016 21:56
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.1)  23 FEB 2016 23:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1510,44 +1510,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
+LaTeX Font Info:    Try loading font information for U+bbm on input line 81.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 179--182
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 [5]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 183.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-)
-Underfull \hbox (badness 10000) in paragraph at lines 204--208
+Underfull \hbox (badness 10000) in paragraph at lines 221--224
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
 [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
+Underfull \hbox (badness 10000) in paragraph at lines 246--250
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 278--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./2016 Spring.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 217.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 217.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 302.
  ) 
 Here is how much of TeX's memory you used:
- 26511 strings out of 493706
- 516685 string characters out of 6145770
- 546803 words of memory out of 5000000
- 29609 multiletter control sequences out of 15000+600000
+ 26512 strings out of 493706
+ 516734 string characters out of 6145770
+ 549018 words of memory out of 5000000
+ 29610 multiletter control sequences out of 15000+600000
  11045 words of font info for 70 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 53i,11n,74p,10460b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,14n,74p,10460b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 2016 Spring.pdf (6 pages).
+Output written on 2016 Spring.pdf (8 pages).

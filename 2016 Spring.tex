@@ -48,7 +48,7 @@
                                 $$f_X(x_1,\ldots,x_n) = \frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\mathrm{exp}(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
                                 
                                 \item
-                                当为二维高斯分布时（$\rho$为相关系数）:\\
+                                当为二维高斯分布时（$\rho$为相关系数）\\
                                 $$f(x,y) = \frac{1}{2\pi\sigma_x\sigma_y\sqrt{1-\rho^2}}\mathrm{exp}\Big( -\frac{1}{2(1-\rho)^2} 
                                 \Big[\frac{(x-\mu_x)}{\sigma_x^2}+\frac{(y-\mu_y)}{\sigma_y^2} - \frac{2\rho(x-\mu_x)(y-\mu_y)}{\sigma_x\sigma_y}\Big]\Big)$$
                                 
@@ -68,8 +68,37 @@
 			方差\\
 			$$2b^2$$
 			\end{itemize}
-	
-	\subsection{矩阵求导法则：}
+	\subsection{线性代数}
+		\begin{itemize}
+		\item
+		Trace\\
+		$$\mathrm{Tr}(\mathbf{ABC}) = \mathrm{Tr}(\mathbf{BCA}) =\mathrm{Tr}(\mathbf{CAB})$$ 
+		\end{itemize}
+	\subsection{矩阵求导法则}
+		\begin{itemize}
+		\item
+		雅各比矩阵\\
+		假设某函数从$\mathbbm{R}^n$映射到$\mathbbm{R}^m$
+		\begin{eqnarray}
+		J_{F}(x_1,\ldots,x_n) = \frac{\partial(y_1,\ldots,y_m)}{\partial(x_1,\ldots,x_n)} =
+		\left(
+			\begin{array}{ccc}
+			\frac{\partial y_1}{\partial x_1}&\ldots&\frac{\partial y_1}{\partial x_n}\\
+			\vdots&\ddots&\vdots\\
+			\frac{\partial y_m}{\partial x_1}&\ldots&\frac{\partial y_m}{\partial x_n}\\
+			\end{array}
+		\right)
+		\end{eqnarray}
+		
+		\item
+		Chain Rules:\\
+		$\mathrm{Suppose}\ \mathbf{y} = f(\mathbf{u}), \mathbf{u} = g(\mathbf{x})$\\
+		\begin{eqnarray}
+		\frac{\partial(y_1,\ldots,y_m)}{\partial(x_1,\ldots,x_n)} = 
+		\frac{\partial(y_1,\ldots,y_m)}{\partial(u_1,\ldots,u_k)} \frac{\partial(u_1,\ldots,u_k)}{\partial(x_1,\ldots,x_n)}
+		\end{eqnarray}
+		\item
+		对向量(Vector Function)求导(定义列向量对标量求导得到的是行向量)：
 		\begin{eqnarray}
 		\mathbf{\frac{\partial u^TAv}{\partial x}} &=& \mathbf{\frac{\partial u}{\partial x}Av + \frac{\partial v}{\partial x}A^Tu}\\
 		\mathbf{\frac{\partial(u(x)+v(x))}{\partial x}} &=& \mathbf{\frac{\partial u(x)}{\partial x}+ \frac{\partial v(x)}{\partial x} }\\
@@ -78,10 +107,23 @@
 		\mathbf{\frac{\partial x^T Ab}{\partial x}} &=& \mathbf{Ab}\\
 		\mathbf{\frac{\partial x^TAx}{\partial x}} &=& \mathbf{(A+A^T)x}\\
 		&=& \mathbf{2Ax} \textrm{\qquad 如果A为对称阵}\\
+		\end{eqnarray}
+		\item
+		矩阵行列式对矩阵求导：
+		\begin{eqnarray}
 		\mathbf{\frac{\partial |X|}{\partial X}} &=& \mathbf{|X|(X^{-1})^T} \\
 		\mathbf{\frac{\partial \ln |X|}{\partial X}} &=& \mathbf{(X^{-1})^T}
 		%\mathbf{\frac{\partial}{\partial x}} &=& \mathbf{\frac{\partial}{\partial x}} 
 		\end{eqnarray}
+		\item
+		矩阵求导\\
+		\begin{eqnarray}
+		\mathbf{\frac{\partial a^TXb}{\partial X}} &=& \mathbf{ab^T} \\
+		\mathbf{\frac{\partial a^TX^Tb}{\partial X}} &=& \mathbf{ba^T} \\
+		\mathbf{\partial X^T} &=& \mathbf{(\partial X)^T}\\
+		\partial(\mathrm{Tr}(\mathbf{X} )) &=& \mathrm{Tr}(\partial \mathbf{X})\\
+		\end{eqnarray}
+		\end{itemize}
 	
 \newpage
 
@@ -205,6 +247,49 @@
 			When the data is separable, there are an infinite number of hyperplanes.\\
 			This algorithm. doesn’t take “quality” into consideration. It converges to the first one it finds.\\
 			When the data isn’t separable, the algorithm doesn’t converge. The hyperplane of $w$ is always moving around.\\
+			\end{itemize}
+		\subsubsection{LOGISTIC REGRESSION}
+			\begin{itemize}
+			\item
+			The distance of $x$ to a hyperplane $x^Tw + w_0$ is:
+			$$\Big|\frac{x^Tw}{||w||_2} + \frac{w_0}{||w||_2}\Big|$$
+			\item
+			鉴于hyperplane与log odds有很多相似的性质，我们可以直接用hyperplane来表示log odds(注意，
+			与前面Bayes得到的公式不同的是，前面是通过先验概率和class prior算出来的$w$,$w_0$，这里我们对于这些先验概率没有约束Discriminative
+			 classifier)：
+			$$\ln \frac{P(y = +1|x)}{P(y = -1|x)} = x^Tw+w_0$$
+			$$P(y=+1|x) = \frac{\mathrm{exp}(x^Tw+w_0)}{1+\mathrm{exp}(x^Tw+w_0)}=\sigma(x^Tw+w_0)$$
+			其中$\sigma$叫做 \emph{sigmoid function}，in this case $x^Tw+w_0$ is the \emph{link function} for the log odds.
+			\item
+			与linear regression 类似，我们可以通过给$x$加入一维全为1的数据，将$w_0$并入到$w$；
+			$$
+			w\gets\left[ 
+			\begin{array}{c}
+			w_0\\w
+			\end{array}\right],\quad
+			x\gets\left[
+			\begin{array}{c}
+			1\\x
+			\end{array}
+			\right]
+			$$
+			$$x^Tw + w_0\gets x^Tw$$
+			\item
+			Data likelihood\\
+			$y_1,\ldots,y_n$的联合分布就是把每个的概率乘起来(默认$P(Y = y_i|X=x_i)$独立同分布)，对联合分布取对数的到目标函数$\mathcal{L}$，
+			算法的目标是找到参数
+			$w$使得目标函数值最大（实际上就是 Maximum likelihood）\\
+			$$\mathcal{L} = \sum_{i=1}^n\ln \sigma_i(y_i\cdot w)$$
+			$$w_{\scriptscriptstyle{ML}} = \argmax_{w}\mathcal{L}$$
+			\item
+			与Perceptron算法类似，使用梯度进行极值的计算(其中$\sigma_i(y_i\cdot w)$表示$P(Y = y_i|X=x_i)$)\\
+			$$w^{(t+1)}=w^t + \eta \nabla_w\mathcal{L},\quad \quad \nabla_w\mathcal{L} = \sum_{i=1}^n\{1-\sigma_i(y_i\cdot w)\}y_ix_i$$
+			有时为了避免‘‘over fitting''使用下述公式:
+			$$\mathcal{L} = \sum_{i=1}^n\ln \sigma_i(y_i\cdot w) - \lambda w^Tw$$
+			\item
+			上述算法叫做\emph{steepest ascent}，还有一种Newton算法利用的是$\mathcal{L}$的二阶导数，参见lecture\_9第14页\\
+			\item
+			Laplace approximation for logistic regression 参见lecture\_9第24页\\
 			\end{itemize}
 			
 	
