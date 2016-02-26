@@ -54,7 +54,15 @@
                                 
                                 条件概率服从:
                                 $$P(X_1\big|X_2 =x_2)\sim N(\mu_1 +\frac{\sigma_1}{\sigma_2}\rho(x_2-\mu_2),(1-\rho^2)\sigma_1^2)$$
-                        \end{itemize}
+                                \item
+                                Product of multivariate gaussian
+                                \begin{eqnarray*}
+                                    N_X(\mu_a,\Sigma_a)\cdot N_X(\mu_b,\Sigma_b) &=& z_cN_X(\mu_c,\Sigma_c)\\
+                                    \Sigma_c &=& (\Sigma_a^{-1}+\Sigma_b^{-1})^{-1}\\
+                                    \mu_c &=& \Sigma_c(\Sigma_a^{-1}\mu_a +\Sigma_b^{-1}\mu_b)\\
+                                    z_c &=& |2\pi(\Sigma_a+\Sigma_b)|^{-\frac{1}{2}}\,\mathrm{exp} \left(-\frac{1}{2}(\mu_a-\mu_b)^T(\Sigma_a+\Sigma_b)^{-1}(\mu_a-\mu_b)\right)
+                                \end{eqnarray*}
+	                        \end{itemize}
 	        
 	        \subsubsection{Laplace Distribution:}
 	        		\begin{itemize}
@@ -171,7 +179,9 @@
 		\subsubsection{GAUSSIAN MLE}
 			$$\hat{\mu}_{\scriptscriptstyle ML} = \frac{1}{n}\sum_{i=1}^nx_i$$
 			$$\hat{\Sigma}_{\scriptscriptstyle ML} = \frac{1}{n}\sum_{i=1}^n(x_i - \hat{\mu}_{\scriptscriptstyle ML})(x_i - \hat{\mu}_{\scriptscriptstyle ML})^T$$
-	
+			$$\mathbb{E}(\hat{\mu}_{\scriptscriptstyle ML}) = \mu$$
+			$$\mathbb{E}(\hat{\Sigma}_{\scriptscriptstyle ML}) = \frac{m-1}{m}\Sigma$$
+			So the mean is unbiased and covariance is biased.
 	\subsection{Linear Regression}
 		\subsubsection{Least Squares}
 			Usually, for linear regression (and classification) we include an intercept term $w_0$ that doesn’t interact with any element in the vector $x$. It will be 
