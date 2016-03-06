@@ -81,6 +81,7 @@
 		\item
 		Trace\\
 		$$\mathrm{Tr}(\mathbf{ABC}) = \mathrm{Tr}(\mathbf{BCA}) =\mathrm{Tr}(\mathbf{CAB})$$ 
+		$$||\mathbf{X}||^2_{\mathrm{F}} = \mathrm{Tr}(\mathbf{X^TX})$$
 		\end{itemize}
 	\subsection{矩阵求导法则}
 		\begin{itemize}
@@ -130,6 +131,10 @@
 		\mathbf{\frac{\partial a^TX^Tb}{\partial X}} &=& \mathbf{ba^T} \\
 		\mathbf{\partial X^T} &=& \mathbf{(\partial X)^T}\\
 		\partial(\mathrm{Tr}(\mathbf{X} )) &=& \mathrm{Tr}(\partial \mathbf{X})\\
+		\frac{\partial}{\partial\mathbf{X}}\mathrm{Tr}(\mathbf{X^TBX} ) &=& \mathbf{B^TX+BX }\\
+		\frac{\partial}{\partial\mathbf{X}}||\mathbf{X}||^2_{\mathrm{F}} &=& 2\mathbf{X}\\
+		\mathbf{\frac{\partial b^TX^TDXc}{\partial X}} &=& \mathbf{D^TXbc^T + DXcb^T}\\
+		\mathbf{\frac{\partial (Xb+c)^TD(Xb+c)}{\partial X}} &=& \mathbf{(D+D^T)(Xb+c)b^T}
 		\end{eqnarray}
 		\end{itemize}
 	
